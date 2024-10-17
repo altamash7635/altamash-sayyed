@@ -1,0 +1,101 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPUfffa1SyuuDdzHt1ioI/m",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/altamash7635/altamash-sayyed/blob/main/age%20calculator%20project%20final\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 49,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3ITC5UvwJW1N",
+        "outputId": "ef3947bb-94f2-454f-bea6-771b7f1195d6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "What's your age? 10\n",
+            "Please choose time unit: Months, Weeks, Days, Hours, Minutes, Seconds. \n",
+            "Note: You can write the first letter or the full name of the time unit. m\n",
+            "You lived for 120 M.\n"
+          ]
+        }
+      ],
+      "source": [
+        "\"\"\"Python Project: Survival Duration Calculator\n",
+        "Project description:\n",
+        "The objective of the project is to calculate the duration of how long a person lived based on his\n",
+        "Age.\n",
+        "The duration should be calculated in different time units like Months, Weeks, Days, Hours,\n",
+        "Minutes, Seconds.\n",
+        "The input to the application is an Age of a person and the output is expected to calculate the\n",
+        "duration of time he lived in different time units as selected by the user.\n",
+        "Below is the expected output.\n",
+        "What's your age? 10\n",
+        "Please choose time unit: Months, Weeks, Days, Hours, Minutes, Seconds.\n",
+        "Note: You can write the first letter or the full name of the time unit. m\n",
+        "You lived for 120 Months\"\"\"\n",
+        "\n",
+        "def calculate_duration(age,unit):\n",
+        "  months = age * 12\n",
+        "  weeks = age * 52\n",
+        "  days = age * 365\n",
+        "  hours = days * 24\n",
+        "  minutes = hours * 60\n",
+        "  seconds = minutes * 60\n",
+        "\n",
+        "  units = {\n",
+        "       'm':months,'months': months,\n",
+        "       'w':weeks,'weeks': weeks,\n",
+        "       'd':days,'days': days,\n",
+        "       'h':hours,'hours': hours,\n",
+        "       'mins':minutes,'minutes': minutes,\n",
+        "       's':seconds,'seconds': seconds\n",
+        "  }\n",
+        "\n",
+        "  return units.get(unit.lower(),None)\n",
+        "\n",
+        "def main(age,unit):\n",
+        "    try:\n",
+        "       duration = calculate_duration(age,unit)\n",
+        "\n",
+        "       if duration is not None:\n",
+        "            print(f\"You lived for {duration} {unit.capitalize()}.\")\n",
+        "\n",
+        "    except ValueError:\n",
+        "      print(\"invalid age . please enter a valid age.\")\n",
+        "\n",
+        "age = int(input(\"What's your age? \"))\n",
+        "unit = input(\"Please choose time unit: Months, Weeks, Days, Hours, Minutes, Seconds. \\nNote: You can write the first letter or the full name of the time unit. \")\n",
+        "main(age,unit)"
+      ]
+    }
+  ]
+}
